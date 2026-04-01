@@ -17,7 +17,14 @@ function _update()
         ship_y=ship_y-ship_speed
     elseif btn(3) then
         ship_y=ship_y+ship_speed
-    end    
+    end 
+    
+    --Limit the edges of the game screen
+    if ship_x > 120 then
+        ship_x=120
+    elseif ship_x<0 then
+        ship_x=0
+    end
 end
 
 function _draw()
