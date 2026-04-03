@@ -5,25 +5,44 @@ function _init()
     ship_speed = 2
     ship_x = 64
     ship_y = 64
+
+    --Bullet variables
+    bullet_sprite = 16
+    bullet_speed = 4
+    bullet_x = 0
+    bullet_y = 0
+    shoot = false
+    
+    
 end
 
 function _update()
     ship_sprite_left = false
     ship_sprite_right = false
+    
 
     --Move the ship (left, right, up and down)
     if btn(0) then
-        ship_x = ship_x-ship_speed
+        ship_x = ship_x - ship_speed
         ship_sprite_left = true
     elseif btn(1) then
-        ship_x = ship_x+ship_speed
+        ship_x = ship_x + ship_speed
         ship_sprite_right = true
     elseif btn(2) then
-        ship_y = ship_y-ship_speed
+        ship_y = ship_y - ship_speed
     elseif btn(3) then
-        ship_y = ship_y+ship_speed
+        ship_y = ship_y + ship_speed
     end 
+
+    --Shoot / move the bullet
+    if btnp(5) then
+        bullet_x = ship_x
+        bullet_y = ship_y - 7
+        shoot = true
+    end
     
+    bullet_y = bullet_y - bullet_speed
+
     --Limit the edges of the game screen
     if ship_x > 120 then
         ship_x = 120
@@ -42,6 +61,11 @@ function _draw()
         spr(3,ship_x,ship_y)
     else
         spr(ship_sprite_center,ship_x,ship_y)
+    end
+
+    --Draw bullet
+    if shoot then
+        spr(bullet_sprite,bullet_x,bullet_y)
     end
 end
 
