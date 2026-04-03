@@ -15,7 +15,10 @@ function _init()
 
     --Trail variables
     trail_sprite = 5
-    
+
+    --Flash variables
+    flash_size = 0
+    flash = false
     
 end
 
@@ -42,6 +45,8 @@ function _update()
         bullet_x = ship_x
         bullet_y = ship_y - 5
         shoot = true
+        flash = true
+        flash_size = 4
         sfx(0)
     end
     
@@ -72,12 +77,17 @@ function _draw()
         spr(bullet_sprite,bullet_x,bullet_y)
     end
 
+    --Draw flash
+    if flash then
+        circfill(ship_x + 2,ship_y - 3,flash_size,7)
+        flash_size = flash_size - 1
+    end
+
     --Draw trail
     spr(trail_sprite,ship_x,ship_y + 7)
     trail_sprite = trail_sprite + 1
     if trail_sprite == 9 then
         trail_sprite = 5
     end
-
 end
 
