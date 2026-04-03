@@ -8,7 +8,6 @@ function _init()
 end
 
 function _update()
-
     ship_sprite_left = false
     ship_sprite_right = false
 
@@ -34,16 +33,15 @@ function _update()
 end
 
 function _draw()
-    --Draw the ship
     cls()
-    spr(ship_sprite_center,ship_x,ship_y)
     
-    --Animate the ship (bend left and right)
+    --Draw / animate the ship (bend left and right)
     if ship_sprite_left then
         spr(1,ship_x,ship_y)
-    end
-    if ship_sprite_right then
+    elseif ship_sprite_right then
         spr(3,ship_x,ship_y)
+    else
+        spr(ship_sprite_center,ship_x,ship_y)
     end
 end
 
