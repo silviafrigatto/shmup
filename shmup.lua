@@ -39,6 +39,7 @@ function _update()
         bullet_x = ship_x
         bullet_y = ship_y - 7
         shoot = true
+        sfx(0)
     end
     
     bullet_y = bullet_y - bullet_speed
