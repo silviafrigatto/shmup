@@ -12,6 +12,9 @@ function _init()
     bullet_x = 0
     bullet_y = 0
     shoot = false
+
+    --Trail variables
+    trail_sprite = 5
     
     
 end
@@ -37,7 +40,7 @@ function _update()
     --Shoot / move the bullet
     if btnp(5) then
         bullet_x = ship_x
-        bullet_y = ship_y - 7
+        bullet_y = ship_y - 5
         shoot = true
         sfx(0)
     end
@@ -68,5 +71,13 @@ function _draw()
     if shoot then
         spr(bullet_sprite,bullet_x,bullet_y)
     end
+
+    --Draw trail
+    spr(trail_sprite,ship_x,ship_y + 7)
+    trail_sprite = trail_sprite + 1
+    if trail_sprite == 9 then
+        trail_sprite = 5
+    end
+
 end
 
