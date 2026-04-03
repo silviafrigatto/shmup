@@ -1,5 +1,9 @@
 function _init()
     cls()
+
+    score = 10000
+    lives = 3
+
     --Ship (player) variables
     ship_sprite_center = 2
     ship_speed = 2
@@ -19,6 +23,10 @@ function _init()
     --Flash variables
     flash_size = 0
     flash = false
+
+    --Hearts variables
+    --heart_x = 1
+    heart_y = 1
     
 end
 
@@ -89,5 +97,15 @@ function _draw()
     if trail_sprite == 9 then
         trail_sprite = 5
     end
+
+    --Draw hearts
+    for i=1,3 do
+        spr(11,i * 9,heart_y)
+    end
+
+    print("score: "..score,40,1,12)
+
+    
+
 end
 
