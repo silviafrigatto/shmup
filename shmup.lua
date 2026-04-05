@@ -27,7 +27,16 @@ function _init()
     --Hearts variables
     --heart_x = 1
     heart_y = 1
-    
+
+    --Stars positions
+    star_x={}
+    star_y={}
+
+    for i=1,100 do
+        add(star_x,flr(rnd(128)))
+        add(star_y,flr(rnd(128)))
+    end   
+        
 end
 
 function _update()
@@ -70,7 +79,8 @@ end
 
 function _draw()
     cls()
-    
+    starfield()
+
     --Draw / animate the ship (bend left and right)
     if ship_sprite_left then
         spr(1,ship_x,ship_y)
@@ -105,7 +115,13 @@ function _draw()
 
     print("score: "..score,40,1,12)
 
-    
-
 end
 
+function starfield()
+    --[[for i=1,10 do
+        pset(flr(rnd(128)), flr(rnd(128)),7)
+    end]]--
+    for i=1,#star_x do
+        pset(star_x[i],star_y[i],7)
+    end
+end
