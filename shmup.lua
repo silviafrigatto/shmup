@@ -28,10 +28,9 @@ function _init()
     --heart_x = 1
     heart_y = 1
 
-    --Stars positions
+    --Stars 
     star_x={}
     star_y={}
-
     for i=1,100 do
         add(star_x,flr(rnd(128)))
         add(star_y,flr(rnd(128)))
@@ -42,7 +41,7 @@ end
 function _update()
     ship_sprite_left = false
     ship_sprite_right = false
-    
+    animateStars()
 
     --Move the ship (left, right, up and down)
     if btn(0) then
@@ -79,6 +78,8 @@ end
 
 function _draw()
     cls()
+
+    --Draw starfield
     starfield()
 
     --Draw / animate the ship (bend left and right)
@@ -97,7 +98,7 @@ function _draw()
 
     --Draw flash
     if flash then
-        circfill(ship_x + 2,ship_y - 3,flash_size,7)
+        circfill(ship_x + 3,ship_y - 3,flash_size,7)
         flash_size = flash_size - 1
     end
 
@@ -118,10 +119,20 @@ function _draw()
 end
 
 function starfield()
-    --[[for i=1,10 do
-        pset(flr(rnd(128)), flr(rnd(128)),7)
-    end]]--
     for i=1,#star_x do
         pset(star_x[i],star_y[i],7)
+    end
+end
+
+function animateStars()
+    star_speed = 1
+    for i=1,#star_y do
+        local sy = star_y[i]
+        sy = sy + star_speed
+
+        if sy > 128 then
+            sy = sy - 128
+        end
+        star_y[i] = sy
     end
 end
