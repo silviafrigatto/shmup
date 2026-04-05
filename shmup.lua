@@ -31,9 +31,12 @@ function _init()
     --Stars 
     star_x={}
     star_y={}
+    star_speed={}
+
     for i=1,100 do
         add(star_x,flr(rnd(128)))
         add(star_y,flr(rnd(128)))
+        add(star_speed,rnd(1.5) + 0.5)
     end   
         
 end
@@ -125,10 +128,9 @@ function starfield()
 end
 
 function animateStars()
-    star_speed = 1
     for i=1,#star_y do
         local sy = star_y[i]
-        sy = sy + star_speed
+        sy = sy + star_speed[i]
 
         if sy > 128 then
             sy = sy - 128
