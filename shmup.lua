@@ -123,7 +123,14 @@ end
 
 function starfield()
     for i=1,#star_x do
-        pset(star_x[i],star_y[i],7)
+        local star_color = 6
+
+        if star_speed[i] < 1 then
+            star_color = 1
+        elseif star_speed[i] < 1.5 then
+            star_color = 13
+        end
+        pset(star_x[i],star_y[i],star_color) 
     end
 end
 
