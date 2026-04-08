@@ -39,14 +39,14 @@ function _init()
         add(star_speed,rnd(1.5) + 0.5)
     end   
 
-    mode = "game"
+    mode = "start"
 end
 
 function _update()
     if mode == "game" then
         update_game()
     elseif mode == "start" then
-        --do something else
+        update_start()
     end
 end
 
@@ -54,7 +54,7 @@ function _draw()
    if mode == "game" then
         draw_game()
     elseif mode == "start" then
-        --do something else
+        draw_start_menu()
     end
 end
 

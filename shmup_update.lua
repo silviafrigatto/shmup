@@ -1,7 +1,3 @@
---[[function init_game()
-    
-end]]--
-
 function update_game()
     ship_sprite_left = false
         ship_sprite_right = false
@@ -38,4 +34,10 @@ function update_game()
         elseif ship_x < 0 then
             ship_x = 0
         end
+end
+
+function update_start()
+    if btnp(4) then
+        mode = "game"
+    end
 end
