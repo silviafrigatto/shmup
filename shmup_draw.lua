@@ -32,8 +32,14 @@ function draw_game()
     end
 
     --Draw hearts
-    for i=1,3 do
-        spr(11,i * 9,heart_y)
+    lives = 3
+    for i=1,4 do
+        if lives >= i then
+            spr(11,i * 9 - 8,heart_y)
+        else
+            spr(12,i * 9 - 8,heart_y)
+        end
+
     end
 
     print("score: "..score,40,1,12)
