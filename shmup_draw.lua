@@ -32,14 +32,13 @@ function draw_game()
     end
 
     --Draw hearts
-    lives = 4
+    --lives = 0
     for i=1,4 do
         if lives >= i then
             spr(11,i * 9 - 8,heart_y)
         else
             spr(12,i * 9 - 8,heart_y)
         end
-
     end
 
     print("score: "..score,40,1,12)
@@ -48,5 +47,11 @@ end
 function draw_start_menu()
     cls(1)
     print("my awesome shmup", 30, 40, 12)
+    print("press any key to start", 30, 70, 7)
+end
+
+function draw_over()
+    cls(2)
+    print("game over", 30, 40, 12)
     print("press any key to start", 30, 70, 7)
 end

@@ -2,7 +2,7 @@ function _init()
     cls()
 
     score = 10000
-    lives = 3
+    --lives = 4
 
     --Ship (player) variables
     ship_sprite_center = 2
@@ -40,6 +40,8 @@ function _init()
     end   
 
     mode = "start"
+
+    lives = 0 -- TO FIX
 end
 
 function _update()
@@ -53,11 +55,11 @@ function _update()
 end
 
 function _draw()
-   if mode == "game" then
+    if mode == "game" then
         draw_game()
     elseif mode == "start" then
         draw_start_menu()
-    elseif mode == "over" then
+    else
         draw_over()
     end
 end

@@ -42,7 +42,7 @@ function update_start()
     end
 end
 
-function update_over()
+function update_over() --TO FIX why is this not working?
     if lives == 0 then
         mode = "over"
     end
