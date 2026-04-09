@@ -41,3 +41,9 @@ function update_start()
         mode = "game"
     end
 end
+
+function update_over()
+    if lives == 0 then
+        mode = "over"
+    end
+end

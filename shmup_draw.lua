@@ -32,7 +32,7 @@ function draw_game()
     end
 
     --Draw hearts
-    lives = 3
+    lives = 4
     for i=1,4 do
         if lives >= i then
             spr(11,i * 9 - 8,heart_y)
