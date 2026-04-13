@@ -2,7 +2,6 @@ function _init()
     cls()
 
     score = 10000
-    --lives = 4
 
     --Ship (player) variables
     ship_sprite_center = 2
@@ -13,9 +12,9 @@ function _init()
     --Bullet variables
     bullet_sprite = 16
     bullet_speed = 4
-    bullet_x = 0
-    bullet_y = 0
-    shoot = false
+    --bullet_x = 0
+    --bullet_y = 0
+    bullet_shoot = false
 
     --bullet = {sprite = 16, speed = 4, x = 0, y = 0, shoot = false, bullets = []}
 
@@ -31,7 +30,8 @@ function _init()
     heart_y = 1
 
     --Stars 
-    --[[
+
+    --[[ OLD CODE
     star_x={}
     star_y={}
     star_speed={}
@@ -43,6 +43,9 @@ function _init()
     end   
     ]]--
 
+    
+    lives = 4 -- TO FIX
+
     stars = {}
     for i=1,100 do
         local new_star = {}
@@ -50,11 +53,12 @@ function _init()
             new_star.y = flr(rnd(128))
             new_star.speed = rnd(1.5) + 0.5
             add(stars,new_star)
-    end 
+    end
+
+    bullets = {}
 
     mode = "start"
 
-    lives = 0 -- TO FIX
 end
 
 function _update()

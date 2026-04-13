@@ -17,6 +17,7 @@ function update_game()
         end 
 
         --Shoot / move the bullet
+        --[[
         if btnp(5) then
             bullet_x = ship_x
             bullet_y = ship_y - 5
@@ -25,8 +26,23 @@ function update_game()
             flash_size = 4
             sfx(0)
         end
+        ]]
+
+        if btnp(5) then
+            local new_bullet={}
+            new_bullet.x = ship_x
+            new_bullet.y = ship_y - 3
+            add(bullets,new_bullet)
+            bullet_shoot = true
+            flash = true
+            flash_size = 4
+            sfx(0)
+        end
         
-        bullet_y = bullet_y - bullet_speed
+        for i=1, #bullets do
+            local mybullet = bullets[i]
+            mybullet.y = mybullet.y - 4
+        end
 
         --Limit the edges of the game screen
         if ship_x > 120 then

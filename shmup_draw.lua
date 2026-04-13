@@ -14,8 +14,11 @@ function draw_game()
     end
 
     --Draw bullet
-    if shoot then
-        spr(bullet.sprite,bullet.x,bullet.y)
+    if bullet_shoot then
+        for i=1,#bullets do
+            local mybullet = bullets[i]
+            spr(16,mybullet.x,mybullet.y)
+        end
     end
 
     --Draw flash

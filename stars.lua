@@ -2,7 +2,7 @@
 
 function starfield()
 
-    --[[
+    --[[ OLD CODE
     for i=1,#star_x do
         local star_color = 6
 
@@ -30,7 +30,7 @@ function starfield()
 end
 
 function animateStars()
-    --[[
+    --[[ OLD CODE
     for i=1,#star_y do
         local sy = star_y[i]
         sy = sy + star_speed[i]
