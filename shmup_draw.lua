@@ -15,7 +15,7 @@ function draw_game()
 
     --Draw bullet
     if shoot then
-        spr(bullet_sprite,bullet_x,bullet_y)
+        spr(bullet.sprite,bullet.x,bullet.y)
     end
 
     --Draw flash

@@ -20,7 +20,7 @@ function update_game()
         if btnp(5) then
             bullet_x = ship_x
             bullet_y = ship_y - 5
-            shoot = true
+            bullet_shoot = true
             flash = true
             flash_size = 4
             sfx(0)

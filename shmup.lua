@@ -17,6 +17,8 @@ function _init()
     bullet_y = 0
     shoot = false
 
+    --bullet = {sprite = 16, speed = 4, x = 0, y = 0, shoot = false, bullets = []}
+
     --Trail variables
     trail_sprite = 5
 
@@ -29,6 +31,7 @@ function _init()
     heart_y = 1
 
     --Stars 
+    --[[
     star_x={}
     star_y={}
     star_speed={}
@@ -38,6 +41,16 @@ function _init()
         add(star_y,flr(rnd(128)))
         add(star_speed,rnd(1.5) + 0.5)
     end   
+    ]]--
+
+    stars = {}
+    for i=1,100 do
+        local new_star = {}
+            new_star.x = flr(rnd(128))
+            new_star.y = flr(rnd(128))
+            new_star.speed = rnd(1.5) + 0.5
+            add(stars,new_star)
+    end 
 
     mode = "start"
 
