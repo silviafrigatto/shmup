@@ -16,6 +16,12 @@ function update_game()
             ship_y = ship_y + ship_speed
         end 
 
+        --Move enemy
+        for i=1, #enemies do
+            local enemy = enemies[i]
+            enemy.y += 0.5
+        end
+
         --Shoot / move the bullet
         --[[
         if btnp(5) then

@@ -17,7 +17,11 @@ function draw_game()
     for i=1,#enemies do
         local enemy = enemies[i]
         spr(enemy.sprite, enemy.x, enemy.y)
+        if enemy.sprite == 25 then
+            enemy.sprite = 21
+        end
     end
+
 
     --Draw bullet
     if bullet_shoot then
