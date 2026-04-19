@@ -4,10 +4,7 @@ function _init()
     score = 10000
 
     --Ship (player) variables
-    ship_sprite_center = 2
-    ship_speed = 2
-    ship_x = 64
-    ship_y = 64
+    ship = {x = 64, y = 64, speed = 2, sprite = 2}
 
     --Bullet variables
     bullet_sprite = 16
@@ -49,11 +46,8 @@ function _init()
 
     stars = {}
     for i=1,100 do
-        local new_star = {}
-            new_star.x = flr(rnd(128))
-            new_star.y = flr(rnd(128))
-            new_star.speed = rnd(1.5) + 0.5
-            add(stars,new_star)
+        local new_star = {x = flr(rnd(128)), y = flr(rnd(128)), speed = rnd(1.5) + 0.5}
+        add(stars,new_star)
     end
 
     bullets = {}
