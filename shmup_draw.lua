@@ -13,6 +13,12 @@ function draw_game()
         spr(ship_sprite_center,ship_x,ship_y)
     end
 
+    --Draw enemies
+    for i=1,#enemies do
+        local enemy = enemies[i]
+        spr(enemy.sprite, enemy.x, enemy.y)
+    end
+
     --Draw bullet
     if bullet_shoot then
         for i=1,#bullets do

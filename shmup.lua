@@ -43,7 +43,8 @@ function _init()
     end   
     ]]--
 
-    
+    mode = "start"
+
     lives = 4 -- TO FIX
 
     stars = {}
@@ -57,7 +58,14 @@ function _init()
 
     bullets = {}
 
-    mode = "start"
+    enemies = {}
+
+    local enemy = {}
+    enemy.x = 60 
+    enemy.y = 5 
+    enemy.sprite = 21
+    add(enemies, enemy)
+    
 
 end
 
