@@ -59,11 +59,7 @@ function _init()
     bullets = {}
 
     enemies = {}
-
-    local enemy = {}
-    enemy.x = 60 
-    enemy.y = 5 
-    enemy.sprite = 21
+    enemy = {x = 60, y = 5, sprite = 21}
     add(enemies, enemy)
     
 

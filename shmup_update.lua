@@ -18,8 +18,13 @@ function update_game()
 
         --Move enemy
         for i=1, #enemies do
-            local enemy = enemies[i]
-            enemy.y += 0.5
+            enemy = enemies[i]
+            enemy.y += 0.8
+            --Animate enemy
+            enemy.sprite += 1
+            if enemy.sprite == 25 then 
+                enemy.sprite = 21
+            end
         end
 
         --Shoot / move the bullet
