@@ -14,15 +14,17 @@ function draw_game()
     end
 
     --Draw enemies
-    for enemy in all (enemies) do
+    draw_sprites(enemies)
+    --[[for enemy in all (enemies) do
         spr(enemy.sprite, enemy.x, enemy.y)
-    end
+    end]]
 
     --Draw bullet
     if shoot then
-        for bullet in all(bullets) do
+        --[[for bullet in all(bullets) do
             spr(bullet.sprite, bullet.x, bullet.y)
-        end
+        end]]
+        draw_sprites(bullets)
     end
 
     --Draw flash
@@ -61,4 +63,10 @@ function draw_over()
     cls(2)
     print("game over", 30, 40, 12)
     print("press any key to start", 30, 70, 7)
+end
+
+function draw_sprites(objects)
+    for object in all (objects) do
+        spr(object.sprite, object.x, object.y)
+    end
 end
