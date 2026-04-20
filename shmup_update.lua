@@ -2,6 +2,7 @@ function update_game()
     ship_sprite_left = false
     ship_sprite_right = false
     animateStars()
+    trail_sprite = animateSprite(trail_sprite, 1, 10, 5)
 
     --Move the ship (left, right, up and down)
     if btn(0) then

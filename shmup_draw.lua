@@ -15,15 +15,9 @@ function draw_game()
 
     --Draw enemies
     draw_sprites(enemies)
-    --[[for enemy in all (enemies) do
-        spr(enemy.sprite, enemy.x, enemy.y)
-    end]]
 
     --Draw bullet
     if shoot then
-        --[[for bullet in all(bullets) do
-            spr(bullet.sprite, bullet.x, bullet.y)
-        end]]
         draw_sprites(bullets)
     end
 
@@ -35,10 +29,11 @@ function draw_game()
 
     --Draw trail
     spr(trail_sprite, ship.x, ship.y + 7)
-    trail_sprite += 1
-    if trail_sprite == 9 then
+    
+    --[[trail_sprite += 1
+    if trail_sprite >= 9 then
         trail_sprite = 5
-    end
+    end]]
 
     --Draw hearts
     --lives = 0
@@ -65,8 +60,8 @@ function draw_over()
     print("press any key to start", 30, 70, 7)
 end
 
-function draw_sprites(objects)
-    for object in all (objects) do
+function draw_sprites(array)
+    for object in all (array) do
         spr(object.sprite, object.x, object.y)
     end
 end
