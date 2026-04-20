@@ -8,7 +8,7 @@ function draw_game()
     if ship_sprite_left then
         spr(1,ship.x, ship.y)
     elseif ship_sprite_right then
-        spr(3,ship.x, ship.y)
+        spr(3, ship.x, ship.y)
     else
         spr(ship.sprite,ship.x,ship.y)
     end
@@ -28,12 +28,12 @@ function draw_game()
     --Draw flash
     if flash then
         circfill(ship.x + 3, ship.y - 3, flash_size, 7)
-        flash_size = flash_size - 1
+        flash_size -= 1
     end
 
     --Draw trail
     spr(trail_sprite, ship.x, ship.y + 7)
-    trail_sprite = trail_sprite + 1
+    trail_sprite += 1
     if trail_sprite == 9 then
         trail_sprite = 5
     end
