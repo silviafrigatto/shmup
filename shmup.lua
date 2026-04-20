@@ -7,13 +7,8 @@ function _init()
     ship = {x = 64, y = 64, speed = 2, sprite = 2}
 
     --Bullet variables
-    bullet_sprite = 16
-    bullet_speed = 4
-    --bullet_x = 0
-    --bullet_y = 0
-    bullet_shoot = false
-
-    --bullet = {sprite = 16, speed = 4, x = 0, y = 0, shoot = false, bullets = []}
+    --bullet = {sprite = 16, speed = 4}
+    shoot = false
 
     --Trail variables
     trail_sprite = 5
@@ -45,7 +40,7 @@ function _init()
     lives = 4 -- TO FIX
 
     stars = {}
-    for i=1,100 do
+    for i=1, 100 do
         local new_star = {x = flr(rnd(128)), y = flr(rnd(128)), speed = rnd(1.5) + 0.5}
         add(stars,new_star)
     end

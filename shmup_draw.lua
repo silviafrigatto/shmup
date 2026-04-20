@@ -6,36 +6,33 @@ function draw_game()
 
     --Draw / animate the ship (bend left and right)
     if ship_sprite_left then
-        spr(1,ship.x,ship.y)
+        spr(1,ship.x, ship.y)
     elseif ship_sprite_right then
-        spr(3,ship.x,ship.y)
+        spr(3,ship.x, ship.y)
     else
         spr(ship.sprite,ship.x,ship.y)
     end
 
     --Draw enemies
-    for i=1,#enemies do
-        enemy = enemies[i]
+    for enemy in all (enemies) do
         spr(enemy.sprite, enemy.x, enemy.y)
-        
     end
 
     --Draw bullet
-    if bullet_shoot then
-        for i=1,#bullets do
-            local mybullet = bullets[i]
-            spr(16,mybullet.x,mybullet.y)
+    if shoot then
+        for bullet in all(bullets) do
+            spr(bullet.sprite, bullet.x, bullet.y)
         end
     end
 
     --Draw flash
     if flash then
-        circfill(ship.x + 3,ship.y - 3,flash_size,7)
+        circfill(ship.x + 3, ship.y - 3, flash_size, 7)
         flash_size = flash_size - 1
     end
 
     --Draw trail
-    spr(trail_sprite,ship.x,ship.y + 7)
+    spr(trail_sprite, ship.x, ship.y + 7)
     trail_sprite = trail_sprite + 1
     if trail_sprite == 9 then
         trail_sprite = 5
@@ -45,13 +42,13 @@ function draw_game()
     --lives = 0
     for i=1,4 do
         if lives >= i then
-            spr(11,i * 9 - 8,heart_y)
+            spr(11,i * 9 - 8, heart_y)
         else
-            spr(12,i * 9 - 8,heart_y)
+            spr(12,i * 9 - 8, heart_y)
         end
     end
 
-    print("score: "..score,40,1,12)
+    print("score: "..score,40, 1, 12)
 end
 
 function draw_start_menu()
