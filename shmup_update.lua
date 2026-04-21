@@ -4,7 +4,10 @@ function update_game()
     animateStars()
     trail_sprite = animateSprite(trail_sprite, 1, 10, 5)
 
-    --Move the ship (left, right, up and down)
+
+    --***MOVEMENT***
+
+    --Ship
     if btn(0) then
         ship.x -= ship.speed
         ship_sprite_left = true
@@ -17,7 +20,7 @@ function update_game()
         ship.y += ship.speed
     end
 
-    --MOVE ENEMY
+    --Enemy
     for enemy in all(enemies) do
         enemy.y += 0.8
         --Animate enemy
@@ -28,7 +31,7 @@ function update_game()
         end
     end
 
-    --Shoot / move the bullet
+    --Bullet
     if btnp(5) then
         local new_bullet = {x = ship.x, y = ship.y - 3, sprite = 16, speed = 4}
         add(bullets, new_bullet)
@@ -53,14 +56,28 @@ function update_game()
         ship.x = 0
     end
 
-    --COLLISION PLAYER AND ENEMY
-    if collision(ship, enemy) then
-        lives -= 1
-        if lives == 0 then 
-            mode = "over"
+    --***COLLISIONS*** 
+    
+    --Player and enemy
+    for enemy in all(enemies) do
+        if collision(ship, enemy) then
+            lives -= 1
+            if lives == 0 then 
+                mode = "over"
+            end
         end
     end
-    
+
+    --Bullet and enemy
+    for bullet in all(bullets) do
+        for enemy in all(enemies) do
+            if collision(bullet, enemy) then
+                del(enemies, enemy)
+                del(bullets, bullet)
+                score += 100
+            end
+        end
+    end
 end
 
 function update_main_menu()
