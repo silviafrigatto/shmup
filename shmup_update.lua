@@ -17,14 +17,11 @@ function update_game()
         ship.y += ship.speed
     end
 
-    --Move enemy
+    --MOVE ENEMY
     for enemy in all(enemies) do
         enemy.y += 0.8
         --Animate enemy
-        enemy.sprite += 0.4
-        if enemy.sprite >= 25 then
-            enemy.sprite = 21
-        end
+        enemy.sprite = animateSprite(enemy.sprite, 0.6, 25, 21)
         --Delete enemy
         if enemy.y > 128 then
             del(enemies, enemy)
@@ -55,6 +52,11 @@ function update_game()
     elseif ship.x < 0 then
         ship.x = 0
     end
+
+    if collision(ship, enemy) then
+        mode = "over"
+    end
+    
 end
 
 function update_start()

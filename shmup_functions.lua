@@ -32,3 +32,16 @@ function animateSprite(frame, speed, last_pos, first_pos)
 
     return frame
 end
+
+function collision(a, b)
+    local object_a = {left = a.x, right = a.x + 7, top = a.y, bottom = a.y + 7}
+    local object_b = {left = b.x, right = b.x + 7, top = b.y, bottom = b.y + 7}
+
+    if object_a.left > object_b.right then return false end
+    if object_b.left > object_a.right then return false end
+    if object_a.top > object_b.bottom then return false end
+    if object_b.top > object_a.bottom then return false end
+
+    return true
+
+end
