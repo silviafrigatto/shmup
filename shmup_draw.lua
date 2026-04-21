@@ -48,7 +48,7 @@ function draw_game()
     print("score: "..score,40, 1, 12)
 end
 
-function draw_start_menu()
+function draw_main_menu()
     cls(1)
     print("my awesome shmup", 30, 40, 12)
     print("press any key to start", 30, 70, 7)

@@ -53,21 +53,24 @@ function update_game()
         ship.x = 0
     end
 
+    --COLLISION PLAYER AND ENEMY
     if collision(ship, enemy) then
-        mode = "over"
+        lives -= 1
+        if lives == 0 then 
+            mode = "over"
+        end
     end
     
 end
 
-function update_start()
+function update_main_menu()
     if btnp(4) then
         mode = "game"
     end
 end
 
 function update_over()
-    --TO FIX why is this not working?
-    if lives == 0 then
-        mode = "over"
+    if btnp(4) then
+        _init()
     end
 end
