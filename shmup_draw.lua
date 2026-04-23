@@ -6,11 +6,11 @@ function draw_game()
 
     --Draw / animate the ship (bend left and right)
     if ship_sprite_left then
-        spr(1,ship.x, ship.y)
+        spr(1, ship.x, ship.y)
     elseif ship_sprite_right then
         spr(3, ship.x, ship.y)
     else
-        spr(ship.sprite,ship.x,ship.y)
+        spr(ship.sprite, ship.x, ship.y)
     end
 
     --Draw enemies
@@ -36,7 +36,6 @@ function draw_game()
     end]]
 
     --Draw hearts
-    --lives = 0
     for i=1,4 do
         if lives >= i then
             spr(11,i * 9 - 8, heart_y)

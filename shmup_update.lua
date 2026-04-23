@@ -2,7 +2,8 @@ function update_game()
     ship_sprite_left = false
     ship_sprite_right = false
     animateStars()
-    trail_sprite = animateSprite(trail_sprite, 1, 10, 5)
+    trail_sprite = animate(trail_sprite, 1, 10, 5)
+    enemy.spawn = true
 
 
     --***MOVEMENT***
@@ -24,10 +25,11 @@ function update_game()
     for enemy in all(enemies) do
         enemy.y += 0.8
         --Animate enemy
-        enemy.sprite = animateSprite(enemy.sprite, 0.6, 25, 21)
+        enemy.sprite = animate(enemy.sprite, 0.6, 25, 21)
         --Delete enemy
         if enemy.y > 128 then
-            del(enemies, enemy)
+            enemy.y = -8
+            enemy.x = rnd(120)
         end
     end
 
@@ -72,8 +74,10 @@ function update_game()
     for bullet in all(bullets) do
         for enemy in all(enemies) do
             if collision(bullet, enemy) then
-                del(enemies, enemy)
-                del(bullets, bullet)
+                --del(enemies, enemy)
+                del(bullets, bullet) 
+                enemy.y = -8
+                enemy.x = rnd(120)
                 score += 100
             end
         end

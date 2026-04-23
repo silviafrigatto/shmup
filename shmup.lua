@@ -32,7 +32,7 @@ function _init()
 
     --Enemies
     enemies = {}
-    enemy = {x = 60, y = 5, sprite = 21}
+    enemy = {x = rnd(120), y = -8, sprite = 21, spawn = false}
     add(enemies, enemy)
     
 

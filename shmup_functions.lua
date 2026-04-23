@@ -24,7 +24,7 @@ function animateStars()
     end
 end
 
-function animateSprite(frame, speed, last_pos, first_pos)
+function animate(frame, speed, last_pos, first_pos)
     frame += speed
     if frame >= last_pos then
         frame = first_pos
@@ -43,5 +43,5 @@ function collision(a, b)
     if object_b.top > object_a.bottom then return false end
 
     return true
-
 end
+
