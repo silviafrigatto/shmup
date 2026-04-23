@@ -60,14 +60,20 @@ function update_game()
     --***COLLISIONS*** 
     
     --Player and enemy
-    for enemy in all(enemies) do
-        if collision(ship, enemy) then
-            lives -= 1
-            if lives == 0 then 
-                mode = "over"
+    if ship.invulnerability <= 0 then
+        for enemy in all(enemies) do
+            if collision(ship, enemy) then
+                lives -= 1
+                ship.invulnerability = 30
             end
         end
+    else
+        ship.invulnerability -= 1
     end
+
+    if lives == 0 then 
+        mode = "over"
+    end 
 
     --Bullet and enemy
     for bullet in all(bullets) do

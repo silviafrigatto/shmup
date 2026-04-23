@@ -6,7 +6,7 @@ function _init()
     score = 10000
 
     --Ship (player) variables
-    ship = {x = 64, y = 64, speed = 2, sprite = 2}
+    ship = {x = 64, y = 64, speed = 2, sprite = 2, invulnerability = 0}
 
     --Bullet variables
     bullets = {}    
