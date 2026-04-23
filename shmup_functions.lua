@@ -45,3 +45,8 @@ function collision(a, b)
     return true
 end
 
+function spawnEnemy()
+    enemy.y = -8
+    enemy.x = rnd(120)
+end
+

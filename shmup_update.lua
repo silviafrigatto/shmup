@@ -28,8 +28,7 @@ function update_game()
         enemy.sprite = animate(enemy.sprite, 0.6, 25, 21)
         --Delete enemy
         if enemy.y > 128 then
-            enemy.y = -8
-            enemy.x = rnd(120)
+            spawnEnemy()
         end
     end
 
@@ -76,8 +75,7 @@ function update_game()
             if collision(bullet, enemy) then
                 --del(enemies, enemy)
                 del(bullets, bullet) 
-                enemy.y = -8
-                enemy.x = rnd(120)
+                spawnEnemy()
                 score += 100
             end
         end
