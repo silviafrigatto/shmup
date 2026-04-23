@@ -8,7 +8,7 @@ function draw_game()
     if ship.invulnerability <= 0 then
         draw_ship()
     else
-        if sin(t/10) < 0 then --TO FIX
+        if sin(t/4) < 0 then --TO FIX
             draw_ship()
         end
     end

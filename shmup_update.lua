@@ -3,7 +3,7 @@ function update_game()
     ship_sprite_right = false
     animateStars()
     trail_sprite = animate(trail_sprite, 1, 10, 5)
-    enemy.spawn = true
+    t+=1
 
 
     --***MOVEMENT***
