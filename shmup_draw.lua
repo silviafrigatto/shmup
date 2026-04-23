@@ -6,14 +6,11 @@ function draw_game()
 
     --Draw / animate the ship (bend left and right)
     if ship.invulnerability <= 0 then
-        if ship_sprite_left then
-            spr(1, ship.x, ship.y)
-        elseif ship_sprite_right then
-            spr(3, ship.x, ship.y)
-        else
-            spr(ship.sprite, ship.x, ship.y)
+        draw_ship()
+    else
+        if sin(t/10) < 0 then --TO FIX
+            draw_ship()
         end
-        spr(trail_sprite, ship.x, ship.y + 7)
     end
 
     --Draw enemies
@@ -58,4 +55,17 @@ function draw_sprites(array)
     for object in all (array) do
         spr(object.sprite, object.x, object.y)
     end
+end
+
+function draw_ship()
+    --Draw ship
+    if ship_sprite_left then
+        spr(1, ship.x, ship.y)
+    elseif ship_sprite_right then
+        spr(3, ship.x, ship.y)
+    else
+        spr(ship.sprite, ship.x, ship.y)
+    end
+    --Draw trail
+    spr(trail_sprite, ship.x, ship.y + 7)
 end

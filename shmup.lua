@@ -4,6 +4,7 @@ function _init()
     mode = "menu"
     lives = 4 
     score = 10000
+    t = 0
 
     --Ship (player) variables
     ship = {x = 64, y = 64, speed = 2, sprite = 2, invulnerability = 0}
