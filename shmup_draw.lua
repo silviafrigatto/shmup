@@ -5,12 +5,15 @@ function draw_game()
     starfield()
 
     --Draw / animate the ship (bend left and right)
-    if ship_sprite_left then
-        spr(1, ship.x, ship.y)
-    elseif ship_sprite_right then
-        spr(3, ship.x, ship.y)
-    else
-        spr(ship.sprite, ship.x, ship.y)
+    if ship.invulnerability <= 0 then
+        if ship_sprite_left then
+            spr(1, ship.x, ship.y)
+        elseif ship_sprite_right then
+            spr(3, ship.x, ship.y)
+        else
+            spr(ship.sprite, ship.x, ship.y)
+        end
+        spr(trail_sprite, ship.x, ship.y + 7)
     end
 
     --Draw enemies
@@ -26,14 +29,6 @@ function draw_game()
         circfill(ship.x + 3, ship.y - 3, flash_size, 7)
         flash_size -= 1
     end
-
-    --Draw trail
-    spr(trail_sprite, ship.x, ship.y + 7)
-    
-    --[[trail_sprite += 1
-    if trail_sprite >= 9 then
-        trail_sprite = 5
-    end]]
 
     --Draw hearts
     for i=1,4 do
