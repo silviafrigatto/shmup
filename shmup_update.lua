@@ -85,6 +85,7 @@ function update_game()
             if collision(bullet, enemy) then
                 del(bullets, bullet) 
                 enemy.hp -= 1
+                enemy.flash = 2
                 if enemy.hp <= 0 then
                     del(enemies, enemy)
                     spawnEnemy()

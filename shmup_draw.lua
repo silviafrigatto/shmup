@@ -14,7 +14,18 @@ function draw_game()
     end
 
     --Draw enemies
-    draw_sprites(enemies)
+    --draw_sprites(enemies)
+
+    for enemy in all(enemies) do
+        if enemy.flash > 0 then
+            enemy.flash -= 1
+            pal(3, 7)
+            pal(11, 7)
+            pal(1, 7)
+        end
+        draw_sprites(enemies)
+        pal()
+    end
 
     --Draw bullet
     if shoot then

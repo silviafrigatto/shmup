@@ -47,7 +47,7 @@ end
 
 function spawnEnemy()
     enemies = {}
-    enemy = {x = rnd(120), y = -8, sprite = 21, hp = 5}
+    enemy = {x = rnd(120), y = -8, sprite = 21, hp = 5, flash = 0}
     add(enemies, enemy)
 end
 
