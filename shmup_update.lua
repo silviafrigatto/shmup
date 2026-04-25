@@ -80,6 +80,7 @@ function update_game()
         for enemy in all(enemies) do
             if collision(bullet, enemy) then
                 --del(enemies, enemy)
+                del(enemies, enemy)
                 del(bullets, bullet) 
                 spawnEnemy()
                 score += 100

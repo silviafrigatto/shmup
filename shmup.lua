@@ -3,7 +3,7 @@ function _init()
 
     mode = "menu"
     lives = 4 
-    score = 10000
+    score = 0
     t = 0
 
     --Ship (player) variables
@@ -32,9 +32,7 @@ function _init()
     end
 
     --Enemies
-    enemies = {}
-    enemy = {x = rnd(120), y = -8, sprite = 21, spawn = false}
-    add(enemies, enemy)
+    spawnEnemy()
     
 
 end

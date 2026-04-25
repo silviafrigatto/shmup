@@ -46,7 +46,8 @@ function collision(a, b)
 end
 
 function spawnEnemy()
-    enemy.y = -8
-    enemy.x = rnd(120)
+    enemies = {}
+    enemy = {x = rnd(120), y = -8, sprite = 21, spawn = false}
+    add(enemies, enemy)
 end
 
