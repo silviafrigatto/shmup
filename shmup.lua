@@ -10,7 +10,8 @@ function _init()
     ship = {x = 64, y = 64, speed = 2, sprite = 2, invulnerability = 0}
 
     --Bullet variables
-    bullets = {}    
+    bullets = {}
+    bullet_frequency = 0    
     shoot = false
 
     --Trail variables
@@ -33,8 +34,6 @@ function _init()
 
     --Enemies
     spawnEnemy()
-    
-
 end
 
 function _update()

@@ -33,14 +33,18 @@ function update_game()
     end
 
     --Bullet
-    if btnp(5) then
-        local new_bullet = {x = ship.x, y = ship.y - 3, sprite = 16, speed = 4}
-        add(bullets, new_bullet)
-        shoot = true
-        flash = true
-        flash_size = 4
-        sfx(0)
+    if btn(5) then
+        if bullet_frequency <= 0 then
+            local new_bullet = {x = ship.x, y = ship.y - 3, sprite = 16, speed = 4}
+            add(bullets, new_bullet)
+            shoot = true
+            flash = true
+            flash_size = 4
+            sfx(0)
+            bullet_frequency = 4
+        end
     end
+    bullet_frequency -= 1
 
     for bullet in all(bullets) do
         bullet.y -= bullet.speed
@@ -79,11 +83,13 @@ function update_game()
     for bullet in all(bullets) do
         for enemy in all(enemies) do
             if collision(bullet, enemy) then
-                --del(enemies, enemy)
-                del(enemies, enemy)
                 del(bullets, bullet) 
-                spawnEnemy()
-                score += 100
+                enemy.hp -= 1
+                if enemy.hp <= 0 then
+                    del(enemies, enemy)
+                    spawnEnemy()
+                    score += 100
+                end
             end
         end
     end
